@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Nov 2023 pada 13.09
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 7.3.33
+-- Generation Time: Nov 18, 2024 at 04:53 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `asset`
+-- Table structure for table `asset`
 --
 
 CREATE TABLE `asset` (
@@ -40,69 +40,70 @@ CREATE TABLE `asset` (
   `harga_asset` varchar(15) NOT NULL,
   `gambar_asset` text NOT NULL,
   `jml_asset` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `asset`
+-- Dumping data for table `asset`
 --
 
 INSERT INTO `asset` (`id_asset`, `id_lokasi`, `id_kategori`, `id_barang`, `id_user`, `kode_asset`, `merk`, `asal_usul`, `tgl_peroleh`, `harga_asset`, `gambar_asset`, `jml_asset`) VALUES
-(1, 1, 1, 2, 1, 'TNH-001-XI-2022', 'Tanah Hibah e', 'Elga Yuan Saputra', '2023-11-18', '540000000', 'tanah.jpg', 20),
-(2, 1, 2, 1, 1, 'LPTP-001-XI-2022', 'Asus Vivobook', 'Inventaris Kantor', '2023-11-08', '6500000', 'laptop.png', 5);
+(6, 2, 2, 3, 1, '5464632', 'vios', 'seksi TU', '2024-11-04', '50000000', 'vios.png', 1),
+(8, 2, 2, 4, 3, '-', 'Honda Adv', 'Kepala Sudin', '2024-11-18', '30000000', 'honda_adv.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `asset_kep`
+-- Table structure for table `asset_kep`
 --
 
 CREATE TABLE `asset_kep` (
   `id_asset_kep` int(11) NOT NULL,
-  `id_pengajuan` int(11) NOT NULL,
-  `tgl_kep` varchar(15) NOT NULL,
-  `nama_asset_kep` varchar(125) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_pengajuan` int(11) DEFAULT NULL,
+  `tgl_kep` varchar(15) DEFAULT NULL,
+  `nama_asset_kep` varchar(125) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `asset_kep`
+-- Dumping data for table `asset_kep`
 --
 
 INSERT INTO `asset_kep` (`id_asset_kep`, `id_pengajuan`, `tgl_kep`, `nama_asset_kep`) VALUES
-(1, 1, '2022-11-20', 'Laptop Asus Seri-A');
+(9, 2, '2024-11-18', 'motor');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
   `nama_barang` varchar(125) NOT NULL,
   `keterangan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `keterangan`) VALUES
-(1, 'Laptop', 'buah'),
-(2, 'Tanah', 'meter');
+(1, 'Laptop', 'Asus'),
+(3, 'Mobil', 'Toyota Vios'),
+(4, 'Motor', 'Honda Adv 160');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(125) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -112,26 +113,26 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lokasi_asset`
+-- Table structure for table `lokasi_asset`
 --
 
 CREATE TABLE `lokasi_asset` (
   `id_lokasi` int(11) NOT NULL,
   `nama_lokasi` varchar(125) NOT NULL,
   `alamat_lengkap` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `lokasi_asset`
+-- Dumping data for table `lokasi_asset`
 --
 
 INSERT INTO `lokasi_asset` (`id_lokasi`, `nama_lokasi`, `alamat_lengkap`) VALUES
-(1, 'Kantor', 'Jl. Dr. Susanto , Kaborongan, Pati Lor, Kec. Pati, Kabupaten Pati');
+(2, 'Kantor', 'Kantor Walikota, Jakarta Selatan\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `monitoring`
+-- Table structure for table `monitoring`
 --
 
 CREATE TABLE `monitoring` (
@@ -141,19 +142,20 @@ CREATE TABLE `monitoring` (
   `hasil_monitoring` text NOT NULL,
   `gambar_asset_monitoring` text NOT NULL,
   `faktor_penyebab` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `monitoring`
+-- Dumping data for table `monitoring`
 --
 
 INSERT INTO `monitoring` (`id_monitoring`, `id_asset`, `tgl_monitoring`, `hasil_monitoring`, `gambar_asset_monitoring`, `faktor_penyebab`) VALUES
-(1, 2, '2023-11-12', '<p>Memiliki Kinerja yang menurun</p>', 'laptop.png', '<p>Butuh Penggantian RAM</p>');
+(3, 6, '2024-11-04', '<p>mobil bersih</p>', 'vios.png', '<p>dicuci</p>'),
+(4, 8, '2024-11-18', '<p>Berjalan Dengan Baik</p>', 'honda_adv.png', '<p>-</p>');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengajuan`
+-- Table structure for table `pengajuan`
 --
 
 CREATE TABLE `pengajuan` (
@@ -163,19 +165,19 @@ CREATE TABLE `pengajuan` (
   `tgl_pengajuan` varchar(15) NOT NULL,
   `total_pengajuan` int(11) NOT NULL,
   `status_pengajuan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pengajuan`
+-- Dumping data for table `pengajuan`
 --
 
 INSERT INTO `pengajuan` (`id_pengajuan`, `id_monitoring`, `id_user`, `tgl_pengajuan`, `total_pengajuan`, `status_pengajuan`) VALUES
-(1, 1, 1, '2022-11-20', 1, 2);
+(2, 3, 1, '2024-11-18', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyusutan`
+-- Table structure for table `penyusutan`
 --
 
 CREATE TABLE `penyusutan` (
@@ -184,20 +186,21 @@ CREATE TABLE `penyusutan` (
   `ket_penyusutan` text NOT NULL,
   `min_harga` varchar(15) NOT NULL,
   `status_asset` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `penyusutan`
+-- Dumping data for table `penyusutan`
 --
 
 INSERT INTO `penyusutan` (`id_penyusutan`, `id_asset`, `ket_penyusutan`, `min_harga`, `status_asset`) VALUES
 (1, 2, 'Melemahnya Kinerja Laptop', '100000', 0),
-(2, 2, 'kinerja', '50000', 0);
+(2, 2, 'kinerja', '50000', 0),
+(3, 6, 'kerusakan mesin', '10000000', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -208,131 +211,131 @@ CREATE TABLE `user` (
   `username` varchar(125) NOT NULL,
   `password` varchar(125) NOT NULL,
   `level_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `no_hp`, `alamat`, `username`, `password`, `level_user`) VALUES
-(1, 'admin', '081000111000', 'Pati', 'admin', 'admin', 1),
-(2, 'Kepala Desa', '082000222000', 'Pati', 'kepaladesa', 'kepaladesa', 2);
+(3, 'malik', '08664535242', 'bogor', 'admin', 'admin', 1),
+(5, 'Botak', '087654324568', 'Bogor', 'user', 'user', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `asset`
+-- Indexes for table `asset`
 --
 ALTER TABLE `asset`
   ADD PRIMARY KEY (`id_asset`);
 
 --
--- Indeks untuk tabel `asset_kep`
+-- Indexes for table `asset_kep`
 --
 ALTER TABLE `asset_kep`
   ADD PRIMARY KEY (`id_asset_kep`);
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `lokasi_asset`
+-- Indexes for table `lokasi_asset`
 --
 ALTER TABLE `lokasi_asset`
   ADD PRIMARY KEY (`id_lokasi`);
 
 --
--- Indeks untuk tabel `monitoring`
+-- Indexes for table `monitoring`
 --
 ALTER TABLE `monitoring`
   ADD PRIMARY KEY (`id_monitoring`);
 
 --
--- Indeks untuk tabel `pengajuan`
+-- Indexes for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`);
 
 --
--- Indeks untuk tabel `penyusutan`
+-- Indexes for table `penyusutan`
 --
 ALTER TABLE `penyusutan`
   ADD PRIMARY KEY (`id_penyusutan`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `asset`
+-- AUTO_INCREMENT for table `asset`
 --
 ALTER TABLE `asset`
-  MODIFY `id_asset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_asset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `asset_kep`
+-- AUTO_INCREMENT for table `asset_kep`
 --
 ALTER TABLE `asset_kep`
-  MODIFY `id_asset_kep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_asset_kep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `lokasi_asset`
+-- AUTO_INCREMENT for table `lokasi_asset`
 --
 ALTER TABLE `lokasi_asset`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `monitoring`
+-- AUTO_INCREMENT for table `monitoring`
 --
 ALTER TABLE `monitoring`
-  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `pengajuan`
+-- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `penyusutan`
+-- AUTO_INCREMENT for table `penyusutan`
 --
 ALTER TABLE `penyusutan`
-  MODIFY `id_penyusutan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_penyusutan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
