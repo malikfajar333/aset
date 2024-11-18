@@ -149,7 +149,7 @@ foreach ($asset as $key => $value) {
                             <td><?= $value->merk ?></td>
                         </tr>
                         <tr>
-                            <th>Asal Usul</th>
+                            <th>Nama Bagian</th>
                             <td><?= $value->asal_usul ?></td>
                         </tr>
                         <tr>

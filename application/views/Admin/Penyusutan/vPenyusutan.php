@@ -20,13 +20,13 @@
     <!-- Main content -->
     <section class="content">
         <?php if ($this->session->userdata('success')) {
-        ?>
+            ?>
             <div class="alert alert-success alert-dismissible mt-3">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <h5><i class="icon fas fa-check"></i> Alert!</h5>
                 <?= $this->session->userdata('success') ?>
             </div>
-        <?php
+            <?php
         } ?>
         <div class="container-fluid">
             <div class="row">
@@ -53,37 +53,30 @@
                                     <?php
                                     $no = 1;
                                     foreach ($asset as $key => $value) {
-                                    ?>
+                                        ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?></td>
-                                            <td class="text-center"><img style="width: 50px;" src="<?= base_url('asset/images/' . $value->kode_asset . '.png') ?>">
+                                            <td class="text-center"><img style="width: 50px;"
+                                                    src="<?= base_url('asset/images/' . $value->kode_asset . '.png') ?>">
                                                 <br><?= $value->kode_asset ?>
                                             </td>
-                                            <td class="text-center">Rp. <?= number_format($value->harga_asset)  ?></td>
+                                            <td class="text-center">Rp. <?= number_format($value->harga_asset) ?></td>
                                             <td class="text-center"><?= $value->nama_barang ?></td>
                                             <td class="text-center"><?= $value->jml_asset ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group">
-                                                    <a href="<?= base_url('Admin/cPenyusutan/detail/' . $value->id_asset) ?>" class="btn btn-danger"> <i class="fas fa-level-down-alt"></i> Detail Penyusutan</a>
+                                                    <a href="<?= base_url('Admin/cPenyusutan/detail/' . $value->id_asset) ?>"
+                                                        class="btn btn-danger"> <i class="fas fa-level-down-alt"></i> Detail
+                                                        Penyusutan</a>
                                                 </div>
                                             </td>
                                         </tr>
-                                    <?php
+                                        <?php
                                     }
                                     ?>
 
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Kode</th>
-                                        <th class="text-center">Nama Asset</th>
-                                        <th class="text-center">Harga Asset</th>
-                                        <th class="text-center">Jumlah Asset</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

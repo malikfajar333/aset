@@ -63,7 +63,7 @@
                                             <td class="text-center"><?= $value->nama_user ?></td>
                                             <td class="text-center"><?php if ($value->status_pengajuan == '0') {
                                                 ?>
-                                                    <span class="badge badge-warning">Menunggu Konfirmasi Kepala Desa</span>
+                                                    <span class="badge badge-warning">Menunggu Konfirmasi User</span>
                                                     <?php
                                             } else if ($value->status_pengajuan == '1') {
                                                 ?>
@@ -113,17 +113,6 @@
                                     }
                                     ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Nama Barang</th>
-                                        <th class="text-center">Tanggal Pengajuan</th>
-                                        <th class="text-center">Total Pengajuan</th>
-                                        <th class="text-center">Atas Nama Pengaju</th>
-                                        <th class="text-center">Status Pengajuan</th>
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

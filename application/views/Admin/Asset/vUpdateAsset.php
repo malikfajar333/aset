@@ -103,7 +103,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Asal Usul</label>
+                                        <label for="exampleInputPassword1">Nama Bagian</label>
                                         <input type="text" name="asal" value="<?= $asset->asal_usul ?>"
                                             class="form-control" id="exampleInputPassword1" placeholder="Asal Usul">
                                         <?= form_error('asal', '<small class="text-danger pl-3">', '</small>'); ?>

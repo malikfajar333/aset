@@ -28,7 +28,7 @@ class cAsset extends CI_Controller
         $this->form_validation->set_rules('barang', 'Barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi Asset', 'required');
         $this->form_validation->set_rules('merk', 'Merk Asset', 'required');
-        $this->form_validation->set_rules('asal', 'Asal Usul Asset', 'required');
+        $this->form_validation->set_rules('nama_bagian', 'Nama Bagian', 'required');
         $this->form_validation->set_rules('tgl', 'Tanggal Peroleh Asset', 'required');
         $this->form_validation->set_rules('harga', 'Harga Asset', 'required');
         $this->form_validation->set_rules('jml', 'Jumlah Asset', 'required');
@@ -45,9 +45,9 @@ class cAsset extends CI_Controller
             $this->load->view('Admin/Layout/footer');
         } else {
 
-            $config['upload_path']          = './asset/foto-asset';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 5000;
+            $config['upload_path'] = './asset/foto-asset';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 5000;
 
             $this->load->library('upload', $config);
 
@@ -60,14 +60,14 @@ class cAsset extends CI_Controller
                 $this->load->library('ciqrcode'); //pemanggilan library QR CODE
 
                 $kode_asset = $this->input->post('kode');
-                $config['cacheable']    = true; //boolean, the default is true
-                $config['cachedir']     = './asset/'; //string, the default is application/cache/
-                $config['errorlog']     = './asset/'; //string, the default is application/logs/
-                $config['imagedir']     = './asset/images/'; //direktori penyimpanan qr code
-                $config['quality']      = true; //boolean, the default is true
-                $config['size']         = '1024'; //interger, the default is 1024
-                $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
-                $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
+                $config['cacheable'] = true; //boolean, the default is true
+                $config['cachedir'] = './asset/'; //string, the default is application/cache/
+                $config['errorlog'] = './asset/'; //string, the default is application/logs/
+                $config['imagedir'] = './asset/images/'; //direktori penyimpanan qr code
+                $config['quality'] = true; //boolean, the default is true
+                $config['size'] = '1024'; //interger, the default is 1024
+                $config['black'] = array(224, 255, 255); // array, default is array(255,255,255)
+                $config['white'] = array(70, 130, 180); // array, default is array(0,0,0)
                 $this->ciqrcode->initialize($config);
                 $image_name = $kode_asset . '.png'; //buat name dari qr code sesuai dengan nim
 
@@ -87,7 +87,7 @@ class cAsset extends CI_Controller
                     'id_user' => $this->session->userdata('id'),
                     'kode_asset' => $this->input->post('kode'),
                     'merk' => $this->input->post('merk'),
-                    'asal_usul' => $this->input->post('asal'),
+                    'nama_bagian' => $this->input->post('nama_bagian'),
                     'tgl_peroleh' => $this->input->post('tgl'),
                     'harga_asset' => $this->input->post('harga'),
                     'gambar_asset' => $upload_data['file_name'],
@@ -108,7 +108,7 @@ class cAsset extends CI_Controller
         $this->form_validation->set_rules('barang', 'Barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi Asset', 'required');
         $this->form_validation->set_rules('merk', 'Merk Asset', 'required');
-        $this->form_validation->set_rules('asal', 'Asal Usul Asset', 'required');
+        $this->form_validation->set_rules('nama_bagian', 'Nama Bagian', 'required');
         $this->form_validation->set_rules('tgl', 'Tanggal Peroleh Asset', 'required');
         $this->form_validation->set_rules('harga', 'Harga Asset', 'required');
         $this->form_validation->set_rules('jml', 'Jumlah Asset', 'required');
@@ -135,14 +135,14 @@ class cAsset extends CI_Controller
                 $this->load->library('ciqrcode'); //pemanggilan library QR CODE
 
                 $kode_asset = $this->input->post('kode');
-                $config['cacheable']    = true; //boolean, the default is true
-                $config['cachedir']     = './asset/'; //string, the default is application/cache/
-                $config['errorlog']     = './asset/'; //string, the default is application/logs/
-                $config['imagedir']     = './asset/images/'; //direktori penyimpanan qr code
-                $config['quality']      = true; //boolean, the default is true
-                $config['size']         = '1024'; //interger, the default is 1024
-                $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
-                $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
+                $config['cacheable'] = true; //boolean, the default is true
+                $config['cachedir'] = './asset/'; //string, the default is application/cache/
+                $config['errorlog'] = './asset/'; //string, the default is application/logs/
+                $config['imagedir'] = './asset/images/'; //direktori penyimpanan qr code
+                $config['quality'] = true; //boolean, the default is true
+                $config['size'] = '1024'; //interger, the default is 1024
+                $config['black'] = array(224, 255, 255); // array, default is array(255,255,255)
+                $config['white'] = array(70, 130, 180); // array, default is array(0,0,0)
                 $this->ciqrcode->initialize($config);
                 $image_name = $kode_asset . '.png'; //buat name dari qr code sesuai dengan nim
 
@@ -153,9 +153,9 @@ class cAsset extends CI_Controller
                 $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
 
             }
-            $config['upload_path']          = './asset/foto-asset';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 5000;
+            $config['upload_path'] = './asset/foto-asset';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 5000;
 
             $this->load->library('upload', $config);
 
@@ -177,7 +177,7 @@ class cAsset extends CI_Controller
                     'id_user' => $this->session->userdata('id'),
                     'kode_asset' => $this->input->post('kode'),
                     'merk' => $this->input->post('merk'),
-                    'asal_usul' => $this->input->post('asal'),
+                    'nama_bagian' => $this->input->post('nama_bagian'),
                     'tgl_peroleh' => $this->input->post('tgl'),
                     'harga_asset' => $this->input->post('harga'),
                     'gambar_asset' => $upload_data['file_name'],
@@ -196,7 +196,7 @@ class cAsset extends CI_Controller
                 'id_user' => $this->session->userdata('id'),
                 'kode_asset' => $this->input->post('kode'),
                 'merk' => $this->input->post('merk'),
-                'asal_usul' => $this->input->post('asal'),
+                'nama_bagian' => $this->input->post('nama_bagian'),
                 'tgl_peroleh' => $this->input->post('tgl'),
                 'harga_asset' => $this->input->post('harga'),
                 'jml_asset' => $this->input->post('jml'),

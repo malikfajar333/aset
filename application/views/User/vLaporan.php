@@ -70,7 +70,7 @@
                                         <th class="text-center">Gambar Asset</th>
                                         <th class="text-center">Jenis Barang</th>
                                         <th class="text-center">Merk</th>
-                                        <th class="text-center">Asal Usul</th>
+                                        <th class="text-center">Nama Bagian</th>
                                         <th class="text-center">Tanggal Peroleh</th>
                                         <th class="text-center">Harga Asset</th>
                                         <th class="text-center">Jumlah Asset</th>
@@ -100,19 +100,6 @@
                                     }
                                     ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Qr Code</th>
-                                        <th class="text-center">Gambar Asset</th>
-                                        <th class="text-center">Nama Asset</th>
-                                        <th class="text-center">Merk</th>
-                                        <th class="text-center">Asal Usul</th>
-                                        <th class="text-center">Tanggal Peroleh</th>
-                                        <th class="text-center">Harga Asset</th>
-                                        <th class="text-center">Jumlah Asset</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
@@ -163,18 +150,6 @@
                                     }
                                     ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Tanggal Pengajuan</th>
-                                        <th class="text-center">Nama Asset</th>
-                                        <th class="text-center">Hasil Monitoring</th>
-                                        <th class="text-center">Faktor Penyebab</th>
-                                        <th class="text-center">Total Pengajuan</th>
-                                        <th class="text-center">Tanggal Keputusan</th>
-                                        <th class="text-center">Nama Asset Keputusan</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
