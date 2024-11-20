@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>SISTEM INFORMASI ASSET</strong>
+    <strong>SISTEM INFORMASI ASSET | KOMINFOTIK JAKARTA SELATAN</strong>
 
 </footer>
 
@@ -24,7 +24,8 @@
 <script src="<?= base_url('asset/AdminLTE/') ?>plugins/moment/moment.min.js"></script>
 <script src="<?= base_url('asset/AdminLTE/') ?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="<?= base_url('asset/AdminLTE/') ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script
+    src="<?= base_url('asset/AdminLTE/') ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="<?= base_url('asset/AdminLTE/') ?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
@@ -47,14 +48,14 @@ AdminLTE App
 <!-- page script -->
 
 <script>
-    $(function() {
+    $(function () {
         //Initialize Select2 Elements
         $('.select2').select2()
 
     })
 </script>
 <script>
-    $(function() {
+    $(function () {
         $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -67,7 +68,7 @@ AdminLTE App
     });
 </script>
 <script>
-    $(function() {
+    $(function () {
         $(".example1").DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -75,15 +76,15 @@ AdminLTE App
     });
 </script>
 <script>
-    window.setTimeout(function() {
-        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();
         });
     }, 3000)
 </script>
 <script>
-    console.log = function() {}
-    $("#monitoring").on('change', function() {
+    console.log = function () { }
+    $("#monitoring").on('change', function () {
 
         $(".tgl").html($(this).find(':selected').attr('data-tgl'));
         $(".tgl").val($(this).find(':selected').attr('data-tgl'));

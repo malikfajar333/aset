@@ -20,13 +20,13 @@
     <!-- Main content -->
     <section class="content">
         <?php if ($this->session->userdata('success')) {
-        ?>
+            ?>
             <div class="alert alert-success alert-dismissible mt-3">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <h5><i class="icon fas fa-check"></i> Alert!</h5>
                 <?= $this->session->userdata('success') ?>
             </div>
-        <?php
+            <?php
         } ?>
         <div class="container-fluid">
             <div class="row">
@@ -55,42 +55,44 @@
                                     <?php
                                     $no = 1;
                                     foreach ($pengajuan as $key => $value) {
-                                    ?>
+                                        ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $value->tgl_pengajuan ?></td>
                                             <td><?= $value->nama_barang ?></td>
                                             <td><?= $value->total_pengajuan ?></td>
                                             <td class="text-center"><?php if ($value->status_pengajuan == '0') {
-                                                                    ?>
-                                                    <span class="badge badge-warning">Menunggu Konfirmasi Kepala Desa</span>
-                                                <?php
-                                                                    } else if ($value->status_pengajuan == '1') {
                                                 ?>
-                                                    <span class="badge badge-info">Asset Keputusan</span>
-                                                <?php
-                                                                    } else if ($value->status_pengajuan == '2') {
+                                                    <span class="badge badge-warning">Menunggu Konfirmasi User</span>
+                                                    <?php
+                                            } else if ($value->status_pengajuan == '1') {
                                                 ?>
-                                                    <span class="badge badge-success">Selesai</span>
-                                                <?php
-                                                                    } else {
+                                                        <span class="badge badge-info">Asset Keputusan</span>
+                                                    <?php
+                                            } else if ($value->status_pengajuan == '2') {
                                                 ?>
-                                                    <span class="badge badge-danger">Ditolak!</span>
-                                                <?php
-                                                                    } ?>
+                                                            <span class="badge badge-success">Selesai</span>
+                                                    <?php
+                                            } else {
+                                                ?>
+                                                            <span class="badge badge-danger">Ditolak!</span>
+                                                    <?php
+                                            } ?>
                                             </td>
                                             <td class="text-center">
                                                 <?php
                                                 if ($value->status_pengajuan == '2') {
-                                                ?>
-                                                    <button type="button" data-toggle="modal" data-target="#detail<?= $value->id_pengajuan ?>" class="btn btn-info"><i class="fas fa-info"></i></button>
-                                                <?php
+                                                    ?>
+                                                    <button type="button" data-toggle="modal"
+                                                        data-target="#detail<?= $value->id_pengajuan ?>" class="btn btn-info"><i
+                                                            class="fas fa-info"></i></button>
+                                                    <?php
                                                 }
                                                 ?>
 
                                             </td>
                                         </tr>
-                                    <?php
+                                        <?php
                                     }
                                     ?>
 
@@ -112,10 +114,10 @@
 
 <?php
 foreach ($detail as $key => $value) {
-?>
+    ?>
     <div class="modal fade" id="detail<?= $value->id_pengajuan ?>">
         <div class="modal-dialog">
-            <form action="<?= base_url('kepaladesa/ckeputusan/asset_keputusan/' . $value->id_pengajuan) ?>" method="POST">
+            <form action="<?= base_url('Admin/ckeputusan/asset_keputusan/' . $value->id_pengajuan) ?>" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Asset Keputusan</h4>
@@ -130,7 +132,6 @@ foreach ($detail as $key => $value) {
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </form>
@@ -138,6 +139,6 @@ foreach ($detail as $key => $value) {
         </div>
         <!-- /.modal-dialog -->
     </div>
-<?php
+    <?php
 }
 ?>

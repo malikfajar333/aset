@@ -28,7 +28,7 @@ class cAsset extends CI_Controller
         $this->form_validation->set_rules('barang', 'Barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi Asset', 'required');
         $this->form_validation->set_rules('merk', 'Merk Asset', 'required');
-        $this->form_validation->set_rules('nama_bagian', 'Nama Bagian', 'required');
+        $this->form_validation->set_rules('asal', 'Asal Usul Asset', 'required');
         $this->form_validation->set_rules('tgl', 'Tanggal Peroleh Asset', 'required');
         $this->form_validation->set_rules('harga', 'Harga Asset', 'required');
         $this->form_validation->set_rules('jml', 'Jumlah Asset', 'required');
@@ -87,7 +87,7 @@ class cAsset extends CI_Controller
                     'id_user' => $this->session->userdata('id'),
                     'kode_asset' => $this->input->post('kode'),
                     'merk' => $this->input->post('merk'),
-                    'nama_bagian' => $this->input->post('nama_bagian'),
+                    'asal_usul' => $this->input->post('asal'),
                     'tgl_peroleh' => $this->input->post('tgl'),
                     'harga_asset' => $this->input->post('harga'),
                     'gambar_asset' => $upload_data['file_name'],
@@ -108,7 +108,7 @@ class cAsset extends CI_Controller
         $this->form_validation->set_rules('barang', 'Barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi Asset', 'required');
         $this->form_validation->set_rules('merk', 'Merk Asset', 'required');
-        $this->form_validation->set_rules('nama_bagian', 'Nama Bagian', 'required');
+        $this->form_validation->set_rules('asal', 'Asal Usul Asset', 'required');
         $this->form_validation->set_rules('tgl', 'Tanggal Peroleh Asset', 'required');
         $this->form_validation->set_rules('harga', 'Harga Asset', 'required');
         $this->form_validation->set_rules('jml', 'Jumlah Asset', 'required');
@@ -177,7 +177,7 @@ class cAsset extends CI_Controller
                     'id_user' => $this->session->userdata('id'),
                     'kode_asset' => $this->input->post('kode'),
                     'merk' => $this->input->post('merk'),
-                    'nama_bagian' => $this->input->post('nama_bagian'),
+                    'asal_usul' => $this->input->post('asal'),
                     'tgl_peroleh' => $this->input->post('tgl'),
                     'harga_asset' => $this->input->post('harga'),
                     'gambar_asset' => $upload_data['file_name'],
@@ -196,7 +196,7 @@ class cAsset extends CI_Controller
                 'id_user' => $this->session->userdata('id'),
                 'kode_asset' => $this->input->post('kode'),
                 'merk' => $this->input->post('merk'),
-                'nama_bagian' => $this->input->post('nama_bagian'),
+                'asal_usul' => $this->input->post('asal'),
                 'tgl_peroleh' => $this->input->post('tgl'),
                 'harga_asset' => $this->input->post('harga'),
                 'jml_asset' => $this->input->post('jml'),

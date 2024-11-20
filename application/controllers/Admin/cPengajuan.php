@@ -46,7 +46,7 @@ class cPengajuan extends CI_Controller
                 'status_pengajuan' => '0',
             );
             $this->mPengajuan->insert($data);
-            $this->session->set_flashdata('success', 'Data Pengajuan Berhasil Diajukkan! Mohon menunggu konfirmasi dari Kepala Desa');
+            $this->session->set_flashdata('success', 'Data Pengajuan Berhasil Diajukkan! Mohon menunggu konfirmasi dari User');
             redirect('Admin/cPengajuan');
         }
     }

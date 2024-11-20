@@ -17,7 +17,7 @@
                     </ol>
                 </div>
             </div>
-            <form action="<?= base_url('KepalaDesa/cLaporan/cetak_laporan') ?>" method="POST">
+            <form action="<?= base_url('User/cLaporan/cetak_laporan') ?>" method="POST">
                 <div class="row">
                     <div class="col-lg-4">
                         <select class="form-control" name="kategori">

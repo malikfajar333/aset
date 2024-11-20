@@ -39,7 +39,7 @@ class cLaporan extends CI_Controller
 
         $pdf->SetFont('Times', 'B', 12);
 
-        $pdf->Cell(200, 10, 'Berita Acara Inventarisasi Asset Desa', 0, 1, 'L');
+        $pdf->Cell(200, 10, 'Tabel Peminjaman Asset', 0, 1, 'L');
         $pdf->SetFont('Times', '', 12);
         $pdf->Cell(200, 10, 'Nomor : ', 0, 1, 'L');
         $pdf->Cell(200, 10, 'Tanggal :' . date('d/m/Y'), 0, 1, 'L');
